@@ -124,7 +124,7 @@ const SessionManager = () => {
     }
     axios
       .post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/save_weekend_template/`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/weekend-format/save_weekend_template/`,
         { template_name: templateName }
       )
       .then((response) => {
