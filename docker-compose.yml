@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+  web:
+    build: ./Tyres_management_project  # 更改为 Django 项目的相对路径
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./Tyres_management_project:/app  # 更改为 Django 项目的相对路径
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  frontend:
+    build: ./Front_end_react  # 更改为 React 项目的相对路径
+    volumes:
+      - ./Front_end_react:/frontend  # 更改为 React 项目的相对路径
+    ports:
+      - "3000:3000"
