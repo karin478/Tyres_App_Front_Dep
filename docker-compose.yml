@@ -8,4 +8,4 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - REACT_APP_BACKEND_URL=http://20.42.85.64
+      - REACT_APP_BACKEND_URL=https://tyreapp.lyndonlyu.com
