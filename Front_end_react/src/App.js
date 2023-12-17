@@ -30,7 +30,7 @@ export default function App() {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/weekend_format/",
+        `${process.env.REACT_APP_BACKEND_URL}/api/weekend_format/`,
         payload
       );
       navigate("/session-manager", { state: { data: response.data } });
@@ -42,7 +42,7 @@ export default function App() {
   const handleReset = async () => {
     try {
       await axios.post(
-        "http://127.0.0.1:8000/api/weekend_format/clear_all_data/"
+      `${process.env.REACT_APP_BACKEND_URL}/api/weekend_format/clear_all_data/`
       );
       window.location.reload();
     } catch (error) {
@@ -53,7 +53,7 @@ export default function App() {
   const resetDataKeepTemplate = () => {
     axios
       .post(
-        "http://127.0.0.1:8000/api/weekend_format/clear_all_data_keepTemplate/"
+        `${process.env.REACT_APP_BACKEND_URL}/api/weekend_format/clear_all_data_keepTemplate/`
       )
       .then((response) => {
         window.location.reload();
