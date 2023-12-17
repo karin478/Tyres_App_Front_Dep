@@ -18,13 +18,13 @@ const TyreStatusPage = () => {
     const fetchTyreData = async () => {
       try {
         const tyreResponse = await axios.get(
-          `http://127.0.0.1:8000/api/tyre_sets/?page=${currentPage}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/tyre_sets/?page=${currentPage}`
         );
         setTyreData(tyreResponse.data.results);
         setTotalRecords(tyreResponse.data.count); //
 
         const sessionResponse = await axios.get(
-          "http://127.0.0.1:8000/api/weekend_session/"
+          `${process.env.REACT_APP_BACKEND_URL}/api/weekend_session/`
         );
         setSessionData(sessionResponse.data.results);
 
@@ -81,7 +81,8 @@ const TyreStatusPage = () => {
     );
 
     try {
-      const url = `http://127.0.0.1:8000/api/tyre_sets/${tyreId}/`;
+      const url = `${process.env.REACT_APP_BACKEND_URL}/api/tyre_sets/${tyreId}/`;
+
       const response = await axios.put(url, updatedTyre);
 
       const updatedTyreFromResponse = response.data;
